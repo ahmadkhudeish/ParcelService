@@ -1,0 +1,203 @@
+# Build Folders
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# macOS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows specific files
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.lnk
+
+# JetBrains Rider
+.idea/
+.idea/*
+.idea/*
+
+# Visual Studio Code
+.vscode/
+.vscode/*
+
+# Rider
+.idea/
+.idea/*
+
+# Auto-generated files by Visual Studio or other IDEs
+*.vs
+.vscode/
+*.code-workspace
+
+# NuGet
+*.nupkg
+*.snupkg
+# NuGet Symbol Server
+.nuget/
+
+# VS Code directories and files
+.vscode/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folders for Web projects
+**/[Ww]eb[Cc]ache/
+
+# Publish outputs
+**/publish/
+**/aspnet-core-*/publish/
+
+# Roslyn generated files
+*.rptproj.rsuser
+*.rptproj.user
+# Note: if you have a lot of files generated in this way and are not keeping these files in source control, consider using a pattern like: *.generated.cs
+
+# Uncomment if you have an MSBuild project file for a Windows Store app
+# *.appxsym
+# *.appxupload
+
+# Exclude all files in .vs except .vs/config/applicationhost.config
+.vs/*
+!.vs/config/
+!.vs/config/applicationhost.config
+
+# Uncomment if using a C# project that requires Packages folder to be checked in
+# Packages/*
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Visual Studio 2019+ sign-in files
+.vs/VSWorkspaceState.json
+.vs/.suo
+.vs/.tlog/
+
+# DotnetWatch
+**/.dotnetwatch.json
+
+# Cake - Uncomment if you have Cake files that shouldn't be committed
+# tools/**
+
+# Azure Function App local settings file
+local.settings.json
+
+# Dotnet user secrets
+secrets.json
+
+# Windows specific files
+*.bat
+*.cmd
+
+# macOS specific files
+.DS_Store
+
+# Linux specific files
+*~
+
+# Rider specific files
+.idea/
+
+# JetBrains Rider specific .idea files
+.idea/.idea
+
+# DotNet Core specific directories and files
+artifacts/
+bundleconfig.json
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Ncrunch
+.ncrunch*
+.ncrunchsolution
+.ncrunchproject
+
+# Chutzpah Test files
+_Chutzpah*
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Dotfuscator
+Dotfuscator/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Client-side libraries
+libman.json
+
+# Composite project
+[Oo]ut/
+
+# Exclude all files in bin and obj directories except KeepMe.txt.
+bin/**
+obj/**
+**/bin/
+**/obj/
+
+!bin/Debug/KeepMe.txt
+!bin/Release/KeepMe.txt
+
+# Windows Azure Build Output
+csx/
+*.build.csdef
+
+# Microsoft Azure Web App publish settings. Sensitive settings and credentials are stored in a separate file.
+PublishProfiles/
+
+# Ignore bin and obj directories
+**/bin/
+**/obj/
+.vs/**
+
+# Ignore specific file types
+*.deps.json
+*.dll
+*.pdb
+*.cache
+*.txt
+*.dgspec.json
+*.props
+*.targets
+*.json
+
+# Ignore runtimeconfig files
+*.runtimeconfig.json
+
+# Ignore genruntimeconfig files
+*.genruntimeconfig.cache

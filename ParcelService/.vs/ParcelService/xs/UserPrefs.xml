@@ -1,3 +1,32 @@
-﻿<Properties>
+﻿<Properties StartupConfiguration="{3BA78B9F-6119-4663-BC71-B288E3A9AB8F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../ParcelService.Tests/CostCalculatorTests.cs">
+    <Files>
+      <File FileName="../ParcelService.Tests/UnitTest1.cs" Line="42" Column="2" />
+      <File FileName="Interfaces/IParcel.cs" Line="1" Column="1" />
+      <File FileName="Interfaces/Factories/IOrder.cs" Line="1" Column="1" />
+      <File FileName="Interfaces/Factories/IParcel.cs" Line="17" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ParcelService" expanded="True">
+            <Node name="ParcelService">
+              <Node name="Interfaces" expanded="True" />
+            </Node>
+            <Node name="ParcelService.Tests" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="ParcelService" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.ItemProperties.ParcelService.Tests PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
