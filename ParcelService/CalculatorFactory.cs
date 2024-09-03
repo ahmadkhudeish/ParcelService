@@ -10,9 +10,9 @@ public class CalculatorFactory : ICalculatorFactory
         return new CostCalculator();
     }
 
-    public IParcel CreateParcel(double length, double width, double height)
+    public IParcel CreateParcel(double length, double width, double height, double weight)
     {
-        return new Parcel(length, width, height);
+        return new Parcel(length, width, height, weight);
     }
 
     public IOrder CreateOrder()

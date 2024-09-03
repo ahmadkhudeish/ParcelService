@@ -14,4 +14,5 @@ public interface IParcel
     double Length { get; }
     double Width { get; }
     double Height { get; }
+    double Weight { get; }
 }
