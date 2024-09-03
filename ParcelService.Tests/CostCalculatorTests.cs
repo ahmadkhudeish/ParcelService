@@ -57,5 +57,51 @@ namespace ParcelService.Tests
             Assert.Equal(0m, result.SpeedyShippingCost);
             Assert.Equal(26m, result.ParcelsCost);
         }
+
+        [Fact]
+        public void CalculateOrderCost_WithSpeedyShipping_DoublesCost()
+        {
+            var order = _calculatorFactory.CreateOrder();
+            order.AddParcel(_calculatorFactory.CreateParcel(5, 5, 5)); 
+            order.AddParcel(_calculatorFactory.CreateParcel(30, 30, 30));  
+            order.SpeedyShipping = true;
+
+            var result = _costCalculator.CalculateOrderCost(order);
+
+            Assert.Equal(22m, result.TotalCost);
+            Assert.Equal(11m, result.SpeedyShippingCost);
+            Assert.Equal(11m, result.ParcelsCost);
+        }
+
+        [Fact]
+        public void CalculateOrderCost_WithoutSpeedyShipping_NormalCost()
+        {
+            var order = _calculatorFactory.CreateOrder();
+            order.AddParcel(_calculatorFactory.CreateParcel(5, 5, 5));  
+            order.AddParcel(_calculatorFactory.CreateParcel(30, 30, 30));  
+            order.SpeedyShipping = false;
+
+            var result = _costCalculator.CalculateOrderCost(order);
+
+            Assert.Equal(11m, result.TotalCost);
+            Assert.Equal(0m, result.SpeedyShippingCost);
+            Assert.Equal(11m, result.ParcelsCost);
+        }
+
+        [Fact]
+        public void CalculateOrderCost_SpeedyShipping_DoesNotAffectIndividualParcelCosts()
+        {
+            var order = _calculatorFactory.CreateOrder();
+            var smallParcel = _calculatorFactory.CreateParcel(5, 5, 5); 
+            var mediumParcel = _calculatorFactory.CreateParcel(30, 30, 30); 
+            order.AddParcel(smallParcel);
+            order.AddParcel(mediumParcel);
+            order.SpeedyShipping = true;
+
+            var result = _costCalculator.CalculateOrderCost(order);
+
+            Assert.Equal(3m, _costCalculator.CalculateParcelCost(smallParcel));
+            Assert.Equal(8m, _costCalculator.CalculateParcelCost(mediumParcel));
+        }
     }
 }
