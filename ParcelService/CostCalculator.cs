@@ -1,9 +1,17 @@
 using ParcelService.Interfaces;
+using System.Linq;
 
 namespace ParcelService.Services;
 
 public class CostCalculator : ICostCalculator
 {
+    private readonly DiscountCalculator _discountCalculator;
+
+    public CostCalculator()
+    {
+        _discountCalculator = new DiscountCalculator(this);
+    }
+
     private static readonly Dictionary<ParcelSize, decimal> CostBySize = new()
     {
         { ParcelSize.Small, 3m },
@@ -52,8 +60,11 @@ public class CostCalculator : ICostCalculator
     public OrderCostResult CalculateOrderCost(IOrder order)
     {
         decimal parcelsCost = order.Parcels.Sum(CalculateParcelCost);
-        decimal speedyShippingCost = order.SpeedyShipping ? parcelsCost : 0;
+        var discounts = _discountCalculator.CalculateDiscounts(order.Parcels);
+        decimal discountAmount = discounts.Sum(d => d.Amount);
+        decimal totalCost = parcelsCost - discountAmount;
+        decimal speedyShippingCost = order.SpeedyShipping ? totalCost : 0;
 
-        return new OrderCostResult(parcelsCost, speedyShippingCost);
+        return new OrderCostResult(parcelsCost, speedyShippingCost, discounts);
     }
 }

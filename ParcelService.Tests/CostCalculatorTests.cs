@@ -51,6 +51,16 @@ namespace ParcelService.Tests
         }
 
         [Fact]
+        public void CalculateParcelCost_HeavyParcelOverridesSize()
+        {
+            // Small dimensions but heavy weight
+            var parcel = _calculatorFactory.CreateParcel(5, 5, 5, 51); 
+            var cost = _costCalculator.CalculateParcelCost(parcel);
+            // Base cost of $50 + $1 for 1kg over
+            Assert.Equal(51m, cost); 
+        }
+
+        [Fact]
         public void CalculateParcelCost_SmallParcel_ReturnsCorrectCost()
         {
             var parcel = _calculatorFactory.CreateParcel(9, 9, 9, 1);
@@ -118,14 +128,6 @@ namespace ParcelService.Tests
 
             Assert.Equal(3m, _costCalculator.CalculateParcelCost(smallParcel));
             Assert.Equal(8m, _costCalculator.CalculateParcelCost(mediumParcel));
-        }
-
-        [Fact]
-        public void CalculateParcelCost_HeavyParcelOverridesSize()
-        {
-            var parcel = _calculatorFactory.CreateParcel(5, 5, 5, 51); // Small dimensions but heavy weight
-            var cost = _costCalculator.CalculateParcelCost(parcel);
-            Assert.Equal(51m, cost); // Base cost of $50 + $1 for 1kg over
         }
     }
 }
