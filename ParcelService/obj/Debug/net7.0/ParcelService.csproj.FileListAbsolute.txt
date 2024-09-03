@@ -1,0 +1,14 @@
+/Users/ahmadkhudeish/tests/ParcelService/obj/Debug/net7.0/ParcelService.csproj.AssemblyReference.cache
+/Users/ahmadkhudeish/tests/ParcelService/obj/Debug/net7.0/ParcelService.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ahmadkhudeish/tests/ParcelService/obj/Debug/net7.0/ParcelService.AssemblyInfoInputs.cache
+/Users/ahmadkhudeish/tests/ParcelService/obj/Debug/net7.0/ParcelService.AssemblyInfo.cs
+/Users/ahmadkhudeish/tests/ParcelService/obj/Debug/net7.0/ParcelService.csproj.CoreCompileInputs.cache
+/Users/ahmadkhudeish/tests/ParcelService/bin/Debug/net7.0/ParcelService.deps.json
+/Users/ahmadkhudeish/tests/ParcelService/bin/Debug/net7.0/ParcelService.runtimeconfig.json
+/Users/ahmadkhudeish/tests/ParcelService/bin/Debug/net7.0/ParcelService.dll
+/Users/ahmadkhudeish/tests/ParcelService/bin/Debug/net7.0/ParcelService.pdb
+/Users/ahmadkhudeish/tests/ParcelService/obj/Debug/net7.0/ParcelService.dll
+/Users/ahmadkhudeish/tests/ParcelService/obj/Debug/net7.0/refint/ParcelService.dll
+/Users/ahmadkhudeish/tests/ParcelService/obj/Debug/net7.0/ParcelService.pdb
+/Users/ahmadkhudeish/tests/ParcelService/obj/Debug/net7.0/ParcelService.genruntimeconfig.cache
+/Users/ahmadkhudeish/tests/ParcelService/obj/Debug/net7.0/ref/ParcelService.dll
