@@ -17,8 +17,11 @@ public class CostCalculator : ICostCalculator
         return CostBySize[parcel.Size];
     }
 
-    public decimal CalculateOrderCost(IOrder order)
+    public OrderCostResult CalculateOrderCost(IOrder order)
     {
-        return order.Parcels.Sum(CalculateParcelCost);
+        decimal parcelsCost = order.Parcels.Sum(CalculateParcelCost);
+        decimal speedyShippingCost = order.SpeedyShipping ? parcelsCost : 0;
+
+        return new OrderCostResult(parcelsCost, speedyShippingCost);
     }
 }

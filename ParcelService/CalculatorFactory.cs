@@ -1,5 +1,4 @@
 using ParcelService.Interfaces;
-using ParcelService.Models;
 using ParcelService.Services;
 
 namespace ParcelService.Factories;

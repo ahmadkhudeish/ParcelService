@@ -1,6 +1,6 @@
 ﻿using ParcelService.Interfaces;
 
-namespace ParcelService.Models;
+namespace ParcelService;
 
 public class Parcel : IParcel
 {
