@@ -9,7 +9,8 @@ public class CostCalculator : ICostCalculator
         { ParcelSize.Small, 3m },
         { ParcelSize.Medium, 8m },
         { ParcelSize.Large, 15m },
-        { ParcelSize.XL, 25m }
+        { ParcelSize.XL, 25m },
+        { ParcelSize.Heavy, 50m }
     };
 
     private static readonly Dictionary<ParcelSize, double> WeightLimitBySize = new()
@@ -17,20 +18,32 @@ public class CostCalculator : ICostCalculator
         { ParcelSize.Small, 1 },
         { ParcelSize.Medium, 3 },
         { ParcelSize.Large, 6 },
-        { ParcelSize.XL, 10 }
+        { ParcelSize.XL, 10 },
+        { ParcelSize.Heavy, 50 }
     };
 
     private const decimal OverweightChargePerKg = 2m;
+    private const decimal HeavyOverweightChargePerKg = 1m;
 
     public decimal CalculateParcelCost(IParcel parcel)
     {
         decimal baseCost = CostBySize[parcel.Size];
         double weightLimit = WeightLimitBySize[parcel.Size];
         
-        if (parcel.Weight > weightLimit)
+
+        if (parcel.Size == ParcelSize.Heavy)
         {
-            decimal overweightCharge = (decimal)(parcel.Weight - weightLimit) * OverweightChargePerKg;
-            return baseCost + overweightCharge;
+            decimal cost = baseCost;
+            if (parcel.Weight > weightLimit)
+            {
+                cost += (decimal)(parcel.Weight - weightLimit) * HeavyOverweightChargePerKg;
+            }
+            return cost;
+        }
+        else if (parcel.Weight > weightLimit)
+        {
+            decimal cost = baseCost + (decimal)(parcel.Weight - weightLimit) * OverweightChargePerKg;
+            return cost;
         }
 
         return baseCost;

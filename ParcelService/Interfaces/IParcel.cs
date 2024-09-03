@@ -5,7 +5,8 @@ public enum ParcelSize
     Small,
     Medium,
     Large,
-    XL
+    XL,
+    Heavy
 }
 
 public interface IParcel

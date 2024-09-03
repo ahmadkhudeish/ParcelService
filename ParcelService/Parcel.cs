@@ -21,6 +21,11 @@ public class Parcel : IParcel
 
     private ParcelSize DetermineSize()
     {
+        if (Weight >= 50) 
+        {
+            return ParcelSize.Heavy;
+        }
+
         double maxDimension = Math.Max(Length, Math.Max(Width, Height));
         
         if (maxDimension < 10) return ParcelSize.Small;

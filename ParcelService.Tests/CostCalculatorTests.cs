@@ -27,6 +27,29 @@ namespace ParcelService.Tests
             Assert.Equal(expectedCost, cost);
         }
 
+        [Theory]
+        [InlineData(5, 5, 5, 2, 5)] // Small parcel 1kg overweight
+        [InlineData(30, 30, 30, 5, 12)] // Medium parcel 2kg overweight
+        [InlineData(60, 60, 60, 8, 19)] // Large parcel 2kg overweight
+        [InlineData(100, 100, 100, 15, 35)] // XL parcel 5kg overweight
+        public void CalculateParcelCost_WithWeight_ReturnsCorrectCost(double length, double width, double height, double weight, decimal expectedCost)
+        {
+            var parcel = _calculatorFactory.CreateParcel(length, width, height, weight);
+            var cost = _costCalculator.CalculateParcelCost(parcel);
+            Assert.Equal(expectedCost, cost);
+        }
+
+        [Theory]
+        [InlineData(10, 10, 10, 50, 50)] // Heavy parcel at weight limit
+        [InlineData(10, 10, 10, 55, 55)] // Heavy parcel 5kg overweight
+        [InlineData(100, 100, 100, 60, 60)] // Heavy parcel, large dimensions
+        public void CalculateParcelCost_HeavyParcel_ReturnsCorrectCost(double length, double width, double height, double weight, decimal expectedCost)
+        {
+            var parcel = _calculatorFactory.CreateParcel(length, width, height, weight);
+            var cost = _costCalculator.CalculateParcelCost(parcel);
+            Assert.Equal(expectedCost, cost);
+        }
+
         [Fact]
         public void CalculateParcelCost_SmallParcel_ReturnsCorrectCost()
         {
@@ -97,20 +120,12 @@ namespace ParcelService.Tests
             Assert.Equal(8m, _costCalculator.CalculateParcelCost(mediumParcel));
         }
 
-        [Theory]
-        [InlineData(5, 5, 5, 1, 3)] // Small parcel at weight limit
-        [InlineData(5, 5, 5, 2, 5)] // Small parcel 1kg overweight
-        [InlineData(30, 30, 30, 3, 8)] // Medium parcel at weight limit
-        [InlineData(30, 30, 30, 5, 12)] // Medium parcel 2kg overweight
-        [InlineData(60, 60, 60, 6, 15)] // Large parcel at weight limit
-        [InlineData(60, 60, 60, 8, 19)] // Large parcel 2kg overweight
-        [InlineData(100, 100, 100, 10, 25)] // XL parcel at weight limit
-        [InlineData(100, 100, 100, 15, 35)] // XL parcel 5kg overweight
-        public void CalculateParcelCost_WithWeight_ReturnsCorrectCost(double length, double width, double height, double weight, decimal expectedCost)
+        [Fact]
+        public void CalculateParcelCost_HeavyParcelOverridesSize()
         {
-            var parcel = _calculatorFactory.CreateParcel(length, width, height, weight);
+            var parcel = _calculatorFactory.CreateParcel(5, 5, 5, 51); // Small dimensions but heavy weight
             var cost = _costCalculator.CalculateParcelCost(parcel);
-            Assert.Equal(expectedCost, cost);
+            Assert.Equal(51m, cost); // Base cost of $50 + $1 for 1kg over
         }
     }
 }
